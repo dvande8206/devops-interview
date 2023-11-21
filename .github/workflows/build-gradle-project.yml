@@ -32,3 +32,6 @@ jobs:
       with:
         name: helloworld
         path: ./helloworld/build/libs/helloworld.jar
+
+    - name: Build the Docker image
+      run: docker build . --file ./helloworld/Dockerfile --tag dvande8206-devops-interview:latest
