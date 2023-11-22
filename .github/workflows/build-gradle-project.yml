@@ -35,3 +35,6 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . --file ./helloworld/Dockerfile --tag dvande820625/devops-interview:latest
+
+    - name: Docker Push
+      run: docker push dvande820625/dvande8206-devops-interview:latest
