@@ -4,4 +4,4 @@
 # ./gradlew clean build
 
 #Start project
-java -jar build/libs/helloworld.jar
+java -jar helloworld/build/libs/helloworld.jar
