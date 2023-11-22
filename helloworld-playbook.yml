@@ -27,6 +27,6 @@
       image: "dvande820625/dvande8206-devops-interview:latest"
       pull: true
       ports:
-        Publish container port 8800 as host port 8081
+        # Publish container port 8800 as host port 8081
         - "8081:8080"
       restart_policy: "always"
