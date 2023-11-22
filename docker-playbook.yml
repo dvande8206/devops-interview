@@ -1,0 +1,44 @@
+- name: Install Docker
+  hosts: all
+
+  tasks:
+    - name: Update&Upgrade
+      apt:
+        name: aptitude
+        state: latest
+        update_cache: true
+      
+    - name: Install dependencies
+      apt:
+        pkg:
+          - ca-certificates
+          - curl
+          - gnupg
+        state: latest
+        update_cache: true
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Install docker
+      apt:
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: latest
+        update_cache: true
+
+    - name: Enable docker service to start on boot
+      ansible.builtin.systemd:
+        name: docker
+        enabled: true

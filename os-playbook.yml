@@ -1,0 +1,32 @@
+- name: Set OS settings
+  hosts: all
+
+  vars:
+    bashrc: /etc/bash.bashrc
+    file: /etc/topsecret.txt
+    
+  tasks:
+  - name: alias to docker
+    lineinfile:
+      path: "{{ bashrc }}"
+      line: alias d='docker'
+      create: true
+
+  - name: alias to docker compose
+    lineinfile:
+      path: "{{ bashrc }}"
+      line: alias dc='docker compose'
+      create: true
+
+  - name: Creating topsecret file and setting permissions
+    file:
+      path: "{{ file }}"
+      state: touch
+      mode: 0400
+      owner: root 
+
+  - name: Insert content into topsecret file
+    lineinfile:
+      path: "{{ file }}"
+      line: t0ps3cr3t
+      create: true

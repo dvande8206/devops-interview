@@ -1,0 +1,32 @@
+- name: Helloworld container
+  hosts: all
+
+  tasks:
+  # - name: Build helloworld docker image 
+  #   community.docker.docker_image:
+  #     name: helloworld
+  #     build:
+  #       path: /projects/helloworld
+  #     source: build
+  #     tag: latest
+
+  # - name: Start helloword container
+  #   community.docker.docker_container:
+  #     name: helloworld
+  #     image: helloworld:latest
+  #     ports:
+  #    # Publish container port 8800 as host port 8081
+  #     - "8081:8080"
+  #     state: started
+  #     restart_policy: "always"
+      
+  - name: Start helloworld container
+    docker_container:
+      name: helloworld
+      state: started
+      image: "dvande820625/dvande8206-devops-interview:latest"
+      pull: true
+      ports:
+        Publish container port 8800 as host port 8081
+        - "8081:8080"
+      restart_policy: "always"
