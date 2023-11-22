@@ -6,4 +6,4 @@ WORKDIR /opt
 RUN chmod +x helloworld/entry.sh
 
 # STEP 2: Run the script that builds/starts the project
-ENTRYPOINT ["/bin/sh","./entry.sh"]
+ENTRYPOINT ["/bin/sh","./helloworld/entry.sh"]
