@@ -2,7 +2,7 @@
   hosts: all
 
   tasks:
-    - name: Update&Upgrade
+    - name: Update and Upgrade
       apt:
         name: aptitude
         state: latest
